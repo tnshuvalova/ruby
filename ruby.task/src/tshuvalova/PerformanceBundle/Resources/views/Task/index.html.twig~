@@ -1,0 +1,24 @@
+{% extends 'tshuvalovaPerformanceBundle::layout.html.twig' %}
+ 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/tshuvalovaperformance/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block content %}
+    <div id="jobs">
+        <table class="jobs">
+            {% for entity in entities %}
+                <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+                    <td class="location">{{ entity.name }}</td>
+                    <td class="position">
+                        <a href="{{ path('project_show', { 'id': entity.project }) }}">
+                            {{ entity.project }}
+                        </a>
+                    </td>
+                    <td class="company">{{ entity.status }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

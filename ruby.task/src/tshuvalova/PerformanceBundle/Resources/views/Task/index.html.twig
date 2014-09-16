@@ -1,0 +1,30 @@
+{% extends 'tshuvalovaPerformanceBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/tshuvalovaperformance/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block content %}
+    <div id="jobs">
+        {% for pr in prs %}
+            <div>
+                <div class="category">
+                    <div class="feed">
+                        <a href="">Feed</a>
+                    </div>
+                    <a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': pr.id }) }}">
+                        <h1>{{ pr.name }}</h1>
+                        </a>
+                </div>
+                {{ include ('tshuvalovaPerformanceBundle:Task:tasklist.html.twig', {'tasks': pr.activetasks}) }}
+                {% if pr.moretasks %}
+                    <div class="more_jobs">
+                        and <a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': pr.id }) }}">{{ pr.moretasks }}</a>
+                        more...
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+<table class="jobs">
+    {% for entity in tasks %}
+    <tr class="{{ cycle(['even', 'odd'], loop.index) }}">
+        <td class="position">{{ entity.date|date('Y-m-d') }}</td>
+        <td class="position">
+            <a href="{{ path('tshuvalova_task_show', { 'id': entity.id }) }}">
+                {{ entity.name }}
+            </a>
+        </td>
+        <td class="company">{{ entity.status }}</td>
+    </tr>
+    {% endfor %}
+</table>

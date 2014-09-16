@@ -1,0 +1,20 @@
+tshuvalova\PerformanceBundle\Entity\Task:
+    type: entity
+    table: task
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            name: string
+            length: 255
+        status:
+            name: string
+    manyToOne:
+        project:
+            targetEntity: Project
+            inversedBy: tasks
+            joinColumn:
+                name: project_id
+                referencedColumnName: id

@@ -1,0 +1,58 @@
+{% extends 'tshuvalovaPerformanceBundle::layout.html.twig' %}
+
+        {% block title %}
+        Tasks for the {{ project.name }} project
+        {% endblock %}
+
+        {% block stylesheets %}
+        {{ parent() }}
+<link rel="stylesheet" href="{{ asset('bundles/tshuvalovaperformance/css/jobs.css') }}" type="text/css" media="all" />
+        {% endblock %}
+
+        {% block content %}
+<div class="category">
+<div class="feed">
+    <a href="">Feed</a>
+</div>
+<h1>{{ project.name }}</h1>
+</div>
+        {{ include ('tshuvalovaPerformanceBundle:Task:tasklist.html.twig', {'tasks': project.activetasks}) }}
+
+
+{% if last_page > 1 %}
+<div class="pagination">
+<a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': project.id, 'page': 1 }) }}">
+    <img src="{{ asset('bundles/ensjobeet/images/first.png') }}" alt="First page" title="First page" />
+</a>
+
+<a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': project.id, 'page': previous_page }) }}">
+    <img src="{{ asset('bundles/ensjobeet/images/previous.png') }}" alt="Previous page" title="Previous page" />
+</a>
+
+{% for page in 1..last_page %}
+{% if page == current_page %}
+{{ page }}
+{% else %}
+<a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': project.id, 'page': page }) }}">{{ page }}</a>
+{% endif %}
+{% endfor %}
+
+<a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': project.id, 'page': next_page }) }}">
+    <img src="{{ asset('bundles/ensjobeet/images/next.png') }}" alt="Next page" title="Next page" />
+</a>
+
+<a href="{{ path('tshuvalovaPerformanceBundle_project_tasks', { 'id': project.id, 'page': last_page }) }}">
+    <img src="{{ asset('bundles/ensjobeet/images/last.png') }}" alt="Last page" title="Last page" />
+</a>
+</div>
+        {% endif %}
+
+<div class="pagination_desc">
+<strong>{{ total_tasks }}</strong> tasks for this project
+
+{% if last_page > 1 %}
+- page <strong>{{ current_page }}/{{ last_page }}</strong>
+{% endif %}
+</div>
+
+        {% endblock %}

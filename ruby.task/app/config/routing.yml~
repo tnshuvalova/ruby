@@ -1,0 +1,8 @@
+tshuvalovaPerformanceBundle_tshuvalova_task:
+    resource: "@tshuvalovaPerformanceBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tshuvalovaPerformanceBundle_tshuvalova_task:
+    resource: "@tshuvalovaPerformanceBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+

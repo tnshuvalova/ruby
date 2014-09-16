@@ -1,0 +1,21 @@
+tshuvalova\PerformanceBundle\Entity\Project:
+    type: entity
+    repositoryClass: tshuvalova\PerformanceBundle\Repository\ProjectRepository
+    table: project
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            name: string
+            length: 255
+            unique: true
+        description:
+            name: string
+            length: 255
+
+    oneToMany:
+        tasks:
+            targetEntity: Task
+            mappedBy: project

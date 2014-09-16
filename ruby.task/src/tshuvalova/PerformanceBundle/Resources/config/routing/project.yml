@@ -1,0 +1,34 @@
+project:
+    path:     /
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:index" }
+
+project_show:
+    path:     /{id}
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:show" }
+
+project_new:
+    path:     /new
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:new" }
+
+project_create:
+    path:     /create
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:create" }
+    requirements: { _method: post }
+
+project_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:edit" }
+
+project_update:
+    path:     /{id}/update
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:update" }
+    requirements: { _method: post|put }
+
+project_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Project:delete" }
+    requirements: { _method: post|delete }
+
+tshuvalova_task_show:
+    path:     /{id}/show
+    defaults: { _controller: "tshuvalovaPerformanceBundle:Task:show" }

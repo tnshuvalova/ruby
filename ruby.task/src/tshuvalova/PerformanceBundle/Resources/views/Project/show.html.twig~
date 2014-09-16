@@ -1,0 +1,27 @@
+{% extends 'tshuvalovaPerformanceBundle::layout.html.twig' %}
+ 
+{% block title %}
+    {{ entity.name }} project performance
+{% endblock %}
+ 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/tshuvalovaperformance/css/job.css') }}" type="text/css" media="all" />
+{% endblock %}
+ 
+{% block content %}
+    
+        <h1>{{ entity.name }}</h1>
+		
+ 
+        <div class="description">
+            {{ entity.description|nl2br }}
+        </div>
+ 
+        <div style="padding: 20px 0">
+            <a href="{{ path('project_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </div>
+    </div>
+{% endblock %}

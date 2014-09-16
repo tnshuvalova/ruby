@@ -1,0 +1,3 @@
+tshuvalova_performance:
+    resource: "@tshuvalovaPerformanceBundle/Resources/config/routing.yml"
+    prefix:   /

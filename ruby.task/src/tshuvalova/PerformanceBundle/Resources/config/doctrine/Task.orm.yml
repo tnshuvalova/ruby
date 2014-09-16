@@ -1,0 +1,27 @@
+tshuvalova\PerformanceBundle\Entity\Task:
+    type: entity
+    repositoryClass: tshuvalova\PerformanceBundle\Repository\TaskRepository
+    table: task
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            name: string
+            length: 255
+        date:
+            type: date
+        status:
+            name: string
+    manyToOne:
+        project:
+            targetEntity: Project
+            inversedBy: tasks
+            joinColumn:
+                name: project_id
+                referencedColumnName: id
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+        preUpdate: [ setUpdatedAtValue ]
+

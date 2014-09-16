@@ -1,0 +1,15 @@
+tshuvalova_performance_homepage:
+    path:     /
+    defaults: { _controller: tshuvalovaPerformanceBundle:Project:index }
+
+tshuvalovaPerformanceBundle_tshuvalova_task:
+    resource: "@tshuvalovaPerformanceBundle/Resources/config/routing/task.yml"
+    prefix:   /task
+
+tshuvalovaPerformanceBundle_project:
+    resource: "@tshuvalovaPerformanceBundle/Resources/config/routing/project.yml"
+    prefix:   /project
+
+tshuvalovaPerformanceBundle_project_tasks:
+    pattern:  /project_tasks/{id}/{page}
+    defaults: { _controller: tshuvalovaPerformanceBundle:ProjectTasks:show, page:1 }
